@@ -10,8 +10,14 @@ data Op = Equal | NotEqual | GreaterThan | LowerThan | GreaterOrEqual | LowerOrE
 
 data Expression = Expression { field :: Field, op :: Op, val1 :: Int, val2 :: Maybe Int }
     deriving (Read, Show)
+    
+data Clause = { op :: BoolOp, exp1 :: Expression, exp2 :: Expression }
+    deriving (Read, Show)
 
 --exp :: Expression
-exp = Expression "coligada" Equal 1
+exp1 = Expression "coligada" Equal 1
+exp2 = Expression "filial" Equal 55
+
+clause = Clause Or exp1 exp2
 
 main = putStrLn "hello world" 
